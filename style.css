@@ -1,0 +1,51 @@
+body{
+    margin: auto;
+    font-family: sans-serif;
+}
+header{
+    width:100%;
+    height:10vh;
+    background-color:#aab576;
+}
+#logo{
+    float:left;
+    margin-top: -20px;
+}
+#logo1{
+    color:white;
+    font-size:80px;
+}
+#logo2{
+    color:tomato;
+    font-size: 70px;
+}
+header input{
+    width:40vw;
+    height:4vh;
+    font-size:30px;
+    float:left;
+    margin:30px;
+    margin-right: 0;
+}
+header input:focus{
+    outline: none;
+}
+.dropdown{
+    width:5%;
+    height:4vh;
+    margin:30px;
+    margin-left: 0;
+    float:left;
+}
+.bibi-basket2{
+    margin:20px;
+    float:right;
+    width:5%;
+    height:49%;
+}
+.bibi-list{
+    margin-top:25px;
+    float:right;
+    width:5%;
+    height:5vh;
+}
