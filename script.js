@@ -13,18 +13,18 @@ app.get("/" , function(req, res){
     res.sendFile(path.join(__dirname
         +'/index.html'));
 })
-app.post('/', function(req, res){
-    console.log(req.body)
-    res.send(req.body)
+app.post('/registration', function(req,res){
+    console.log('Siema')
+    res.send('Your username and password is:' + req.body.username + req.body.password)
 })
 app.listen(8080)
 app.use('/public', express.static(path.join(__dirname, 'public')));
 MongoClient.connect(url, function(err, db){
     if (err) throw err;
+});
 //     var dbo = db.db("mydb")
 //     dbo.createCollection('users', function(err, res){
 //         if (err) throw err;
 //         console.log("Collection Created")
 //         db.close();
 //     });
-});
