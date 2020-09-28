@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
@@ -17,8 +16,8 @@
             }
             header{
                 width:100%;
-                height:10vh;
-                background-color:#aab576;
+                height:95px;
+                background-color:#0b569c;
                 font-family: 'Source Code Pro', monospace;
             }
             #logo{
@@ -32,6 +31,7 @@
             #logo2{
                 color:tomato;
                 font-size: 70px;
+                margin-right: 100px;
             }
             header input{
                 width:40vw;
@@ -64,8 +64,14 @@
                 height:5vh;
             }
             main{
+                width: 98%;
+                height: 850px;
                 margin: auto;
-                position: relative;
+                
+            }
+            .bar
+            {
+                width: 300px;
             }
         </style>
     </head>
@@ -97,16 +103,29 @@
                 <path fill-rule="evenodd" d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-.623l-1.844 6.456a.75.75 0 0 1-.722.544H3.69a.75.75 0 0 1-.722-.544L1.123 8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.163 8l1.714 6h8.246l1.714-6H2.163z"/>
             </svg>
         </header>
-        <nav>
-            
-        </nav>
         <main>
             <form method="POST" action="http://localhost:8080/registration">
-                <input type="text" name="username" placeholder="Nazwa użytkownika"/><br></br><!-- This input have to be named username -->
-                <input type="text" name="email" placeholder="Podaj adres E-mail"/><br></br><!-- This input have to be named email -->
-                <input type='password' name="password" placeholder="Hasło"/><br></br><!-- This input have to be named password -->
-                <input type="submit" name="guzig"/>
-            </form>
+            <div class="form-group row">
+              </div>
+              <div class="form-group">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Username</label>
+                <div class="bar">
+                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" style="color: black;">
+                </div>
+              </div>
+            <div class="form-group">
+              <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+              <div class="bar">
+                <input type="text" readonly class="form-control-plaintext" id="staticEmail"  name="email" style="color: black;">
+              </div>
+            </div>
+            <div class="form-groupp">
+              <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+              <div class="bar">
+                <input type="password" class="form-control-plaintext" id="inputPassword" name="password" style="color: black;">
+              </div>
+            </div>
+        </form>
         </main>
     </body>
     <script src="script.js"></script>
