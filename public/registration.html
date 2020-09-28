@@ -10,6 +10,64 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
         <title>AleDrogo</title>
+        <style>
+            body{
+                margin: auto;
+                font-family: sans-serif;
+            }
+            header{
+                width:100%;
+                height:10vh;
+                background-color:#aab576;
+                font-family: 'Source Code Pro', monospace;
+            }
+            #logo{
+                float:left;
+                margin-top: -20px;
+            }
+            #logo1{
+                color:white;
+                font-size:80px;
+            }
+            #logo2{
+                color:tomato;
+                font-size: 70px;
+            }
+            header input{
+                width:40vw;
+                height:4vh;
+                font-size:30px;
+                float:left;
+                margin:30px;
+                margin-right: 0;
+            }
+            header input:focus{
+                outline: none;
+            }
+            .dropdown{
+                width:5%;
+                height:4vh;
+                margin:30px;
+                margin-left: 0;
+                float:left;
+            }
+            .bibi-basket2{
+                margin:20px;
+                float:right;
+                width:5%;
+                height:49%;
+            }
+            .bibi-list{
+                margin-top:25px;
+                float:right;
+                width:5%;
+                height:5vh;
+            }
+            main{
+                margin: auto;
+                position: relative;
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -38,12 +96,18 @@
                 <path d="M4 10a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 1 1 2 0v2a1 1 0 0 1-2 0v-2z"/>
                 <path fill-rule="evenodd" d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-.623l-1.844 6.456a.75.75 0 0 1-.722.544H3.69a.75.75 0 0 1-.722-.544L1.123 8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.163 8l1.714 6h8.246l1.714-6H2.163z"/>
             </svg>
+        </header>
+        <nav>
+            
+        </nav>
+        <main>
             <form method="POST" action="http://localhost:8080/registration">
-                <input type="text" name="username" placeholder="Nazwa użytkownika"/>
-                <input type='password' name="password" placeholder="Hasło"/>
+                <input type="text" name="username" placeholder="Nazwa użytkownika"/><br></br><!-- This input have to be named username -->
+                <input type="text" name="email" placeholder="Podaj adres E-mail"/><br></br><!-- This input have to be named email -->
+                <input type='password' name="password" placeholder="Hasło"/><br></br><!-- This input have to be named password -->
                 <input type="submit" name="guzig"/>
             </form>
-        </header>
+        </main>
     </body>
     <script src="script.js"></script>
 </html>
