@@ -27,6 +27,7 @@
     "express-session": "^1.17.1",
     "mongo-connect": "0.0.6",
     "mongodb": "^3.6.2",
+    "nodemailer": "^6.4.13",
     "nodemon": "^2.0.4",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
