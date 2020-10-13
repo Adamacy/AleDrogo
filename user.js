@@ -113,7 +113,7 @@ router.post('/forgotpassword', function(req, res){
                 return false
             }
             if(response != null){
-                res.redirect('/forgotpassword/forgotpassword2.html')
+                res.redirect('/public/forgotpassword/forgotpassword2.html')
             }
             transporter.sendMail(mailOptions, function(err, info){
                 if (err) throw err
@@ -129,7 +129,7 @@ router.post('/forgotpassword2', function(req, res){
         dbo.collection('codes').findOne({'code': req.body.code}, function(err, response){
             if (err) throw err
             if(response != null){
-                res.redirect('/forgotpassword/forgotpassword3.html')
+                res.redirect('/public/forgotpassword/forgotpassword3.html')
             }
             if(response == null){
                 res.sendStatus(400)
