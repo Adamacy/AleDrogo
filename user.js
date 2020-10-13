@@ -5,7 +5,6 @@ const { ObjectId } = require('mongodb');
 const mongo = require('mongodb');
 const bcrypt = require('bcrypt');
 const passport = require("passport");
-const random = require('random')
 const LocalStrategy = require("passport-local").Strategy;
 const saltRounds = 10
 const nodemailer = require('nodemailer');
