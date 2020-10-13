@@ -4,8 +4,8 @@ body{
 }
 header{
     width:100%;
-    height:10vh;
-    background-color:#202020;
+    height:95px;
+    background-color:#ebe2ae;
     font-family: 'Source Code Pro', monospace;
 }
 #logo{

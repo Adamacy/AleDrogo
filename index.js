@@ -6,7 +6,6 @@ const bodyParser = require('body-parser')
 const bcrypt = require('bcrypt');
 const { readSync } = require("fs");
 const passport = require("passport");
-const nodemailer = require('nodemailer');
 const database = require('./Database.js')
 const session = require('express-session')
 const mongoStore = require('connect-mongo')(session)
@@ -34,4 +33,4 @@ app.use(passport.session());
 app.use('/', database.router)
 app.use('/', user.router)
 
-app.listen(8080)
+app.listen(process.env.PORT || 8080)

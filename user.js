@@ -5,15 +5,37 @@ const { ObjectId } = require('mongodb');
 const mongo = require('mongodb');
 const bcrypt = require('bcrypt');
 const passport = require("passport");
+const random = require('random')
 const LocalStrategy = require("passport-local").Strategy;
 const saltRounds = 10
+const nodemailer = require('nodemailer');
+const { response } = require("express");
 var MongoClient = require('mongodb').MongoClient;
+var code = generateRandomString(6)
 var url = "mongodb+srv://Adamacy:NieInterere123@cluster0.x41no.mongodb.net/AleDrogo?retryWrites=true&w=majority"
 // mongodb+srv://Adamacy:NieInterere123@cluster0.x41no.mongodb.net/test
+var transporter = nodemailer.createTransport({
+    'service': 'gmail',
+    auth: {
+        user: 'pythonislove2137@gmail.com',
+        pass: 'PythonLove2137'
+    }
+});
+function generateRandomString(length) {
+    let result = '';
+    let characters = '0123456789';
+    let charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
 router.get("/" , function(req, res){
     res.sendFile(path.join(__dirname
         +'/index.html'));
-})
+});
+// Sign in to ALeDrogo
 router.post('/login', passport.authenticate('local', { successRedirect: '/',
                                                     failureRedirect: '/login' }));
 
@@ -40,9 +62,10 @@ passport.use(new LocalStrategy({ usernameField: "email" }, (email, password, don
         });
     }
 ));
-passport.serializeUser(function(user, done) {
+// session
+passport.serializeUser(function(user, done){
     done(null, user.id);
-  });
+});
 passport.deserializeUser(function(id, done){
     MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db){
         if (err) throw err
@@ -53,7 +76,7 @@ passport.deserializeUser(function(id, done){
         })
     })
 })
-
+// Registering user into database
 router.post('/registration', function(req, res){
     MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db){
         if (err) throw err
@@ -64,6 +87,54 @@ router.post('/registration', function(req, res){
                 if (err) throw err
                 res.sendStatus(201)
             })
+            dbo.collection('codes').insertOne({'email': req.body.email, 'code': code})
+        })
+    })
+})
+// Password reseting system
+router.post('/forgotpassword', function(req, res){
+    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db){
+        if (err) throw err
+        let dbo = db.db('mydb')
+        dbo.collection('codes').updateOne({'email': req.body.forgotemail}, {$set: {'code': code}}, function(err, response){
+            if (err) throw err
+            var mailOptions = {
+                from: 'pythonislove2137@gmail.com',
+                to: req.body.forgotemail,
+                subject: 'Reset hasła AleDrogo',
+                text: `Jeśli czytasz tego maila prawdopodobnie zapomniałeś hasła. Wpisz ${code} kod na stronie, aby móc zresetować hasło.`
+            }
+            console.log(code)
+            if(req.body.code != null){
+                res.sendStatus(200)
+            }
+            console.log(req.body.code)
+            if(response == null){
+                res.sendStatus(404)
+                return false
+            }
+            if(response != null){
+                res.redirect('http://localhost:8080/public/forgotpassword/forgotpassword2.html')
+            }
+            transporter.sendMail(mailOptions, function(err, info){
+                if (err) throw err
+                console.log(info)
+            })
+        })
+    })
+})
+router.post('/forgotpassword2', function(req, res){
+    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db){
+        if (err) throw err
+        let dbo = db.db('mydb')
+        dbo.collection('codes').findOne({'code': req.body.code}, function(err, response){
+            if (err) throw err
+            if(response != null){
+                res.redirect('http://localhost:8080/public/forgotpassword/forgotpassword3.html')
+            }
+            if(response == null){
+                res.sendStatus(400)
+            }
         })
     })
 })
