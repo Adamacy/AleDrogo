@@ -29,7 +29,6 @@ function generateRandomString(length) {
     }
     return result;
 }
-
 router.get("/" , function(req, res){
     res.sendFile(path.join(__dirname
         +'/index.html'));
@@ -47,7 +46,6 @@ passport.use(new LocalStrategy({ usernameField: "email" }, (email, password, don
                 if (response == null){
                     return done(null, false, {'message': 'Niepoprawny e-mail lub hasło'})
                 }
-                
                 bcrypt.compare(password, response.password, function(err, result){
                     if (err) throw err
                     if (result == true){
@@ -92,6 +90,7 @@ router.post('/registration', function(req, res){
 })
 // Password reseting system
 router.post('/forgotpassword', function(req, res){
+    var forgotemail = req.body.forgotemail
     MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db){
         if (err) throw err
         let dbo = db.db('mydb')
@@ -99,7 +98,7 @@ router.post('/forgotpassword', function(req, res){
             if (err) throw err
             var mailOptions = {
                 from: 'pythonislove2137@gmail.com',
-                to: req.body.forgotemail,
+                to: forgotemail,
                 subject: 'Reset hasła AleDrogo',
                 text: `Jeśli czytasz tego maila prawdopodobnie zapomniałeś hasła. Wpisz ${code} kod na stronie, aby móc zresetować hasło.`
             }
@@ -137,7 +136,26 @@ router.post('/forgotpassword2', function(req, res){
         })
     })
 })
-
+router.post('/forgotpassword3', function(req, res){
+    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db){
+        if (err) throw err
+        let dbo = db.db('mydb')
+        var forgotemail = req.body.forgotemail
+        console.log(forgotemail)
+        var password = bcrypt.hash(req.body.newpassword, saltRounds)
+        dbo.collection('users').updateOne({'email': forgotemail}, {$set: {'password': password}}, function(err, response){
+            if (err) throw err
+            if(response != null){
+                console.log('Password Changed')
+                res.sendStatus(201)
+            }
+            if(response == null){
+                console.log('Error')
+                res.sendStatus(404)
+            }
+        })
+    })
+})
 router.get('/islogedin', function(req,res){
     res.json(req.user)
 })

@@ -1,0 +1,24 @@
+style.
+  *{
+    font-familly: sans-serif;
+  }
+  .offerStyle{
+    font-size:20px;
+    margin-top:20px;
+  }
+  a{
+    text-decoration:none;
+    color:black;
+  }
+script.
+  function pugCompiler(cokolwiek){
+  for(offer of cokolwiek){
+  let div = document.createElement('div');
+  div.className = 'offerStyle';
+  div.innerHTML = `<a href=/offer/${offer._id}>${offer.title}<br><img src=../public/images/${offer.image}></a>`;
+  document.body.appendChild(div)
+  }
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+       pugCompiler(!{response})
+      })

@@ -6,7 +6,7 @@ header{
     width:100%;
     height:95px;
     background-color:#ebe2ae;
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Commissioner', sans-serif;
 }
 #logo{
     float:left;
@@ -50,4 +50,8 @@ header input:focus{
     float:right;
     width:5%;
     height:5vh;
+}
+nav{
+    float:left;
+    background-color: aqua;
 }
