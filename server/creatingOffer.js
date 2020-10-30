@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const path = require('path');
 const pug = require('pug')
+const formidable = require('formidable')
 const mongo = require('mongodb');
 const fs = require('fs');
 var MongoClient = require('mongodb').MongoClient;
@@ -12,25 +13,24 @@ router.get("/" , function(req, res){
         +'/index.html'));
 })
 router.post('/offer', function(req, res){
-    let offerData = {
-        'title': req.body.title,
-        'description': req.body.description,
-        'image': req.body.image,
-        'category': req.body.category,
-        'state': req.body.state,
-        'cost': req.body.cost,
-    }
+    var form = new formidable.IncomingForm();
+    form.parse(req, function(err, fields, files){
+        if (err) throw err
+        let oldpath = files.image.path;
+        let newpath = `C:/Users/ajaku/OneDrive/Dokumenty/AleDrogo/server/public/images/${files.image.name}`;
+        fs.rename(oldpath, newpath, function(err){
+            if (err) throw err
+        })
+    })
     MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db){
         if (err) throw err
         let dbo = db.db('mydb')
-        dbo.collection('offers').insertOne(offerData, function(err, response){
+        dbo.collection('offers').insertOne({'title': req.body.title, 'description': req.body.description, 'image': req.body.image, 'category': req.body.category, 'state': req.body.state, 'cost': req.body.cost,}, function(err, response){
             if (err) throw err
             if (response != null){
-                console.log('Data inserted')
                 res.sendStatus(200)
             }
             if(response == null){
-                console.log('Error')
                 res.sendStatus(400)
             }
         })

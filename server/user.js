@@ -1,14 +1,12 @@
 const express = require("express");
 const router = express.Router()
 const path = require('path');
-const { ObjectId } = require('mongodb');
-const mongo = require('mongodb');
+const { ObjectId } = require('mongodb');;
 const bcrypt = require('bcrypt');
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const saltRounds = 10
 const nodemailer = require('nodemailer');
-const { response } = require("express");
 var MongoClient = require('mongodb').MongoClient;
 var code = generateRandomString(6)
 var url = "mongodb+srv://Adamacy:NieInterere123@cluster0.x41no.mongodb.net/AleDrogo?retryWrites=true&w=majority"
