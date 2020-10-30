@@ -80,11 +80,10 @@ router.post('/registration', function(req, res){
         let dbo = db.db('mydb');
         bcrypt.hash(req.body.password, saltRounds, function(err, hash){
             if (err) throw err
-            dbo.collection('users').insertOne({'username':req.body.username, 'email':req.body.email, 'password': hash}, function(err){
+            dbo.collection('users').insertOne({'username':req.body.username, 'email':req.body.email, 'password': hash, 'code': code}, function(err){
                 if (err) throw err
                 res.sendStatus(201)
             })
-            dbo.collection('codes').insertOne({'email': req.body.email, 'code': code})
         })
     })
 })
@@ -94,7 +93,7 @@ router.post('/forgotpassword', function(req, res){
     MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db){
         if (err) throw err
         let dbo = db.db('mydb')
-        dbo.collection('codes').updateOne({'email': req.body.forgotemail}, {$set: {'code': code}}, function(err, response){
+        dbo.collection('users').updateOne({'email': req.body.forgotemail}, {$set: {'code': code}}, function(err, response){
             if (err) throw err
             var mailOptions = {
                 from: 'pythonislove2137@gmail.com',
@@ -102,11 +101,6 @@ router.post('/forgotpassword', function(req, res){
                 subject: 'Reset hasła AleDrogo',
                 text: `Jeśli czytasz tego maila prawdopodobnie zapomniałeś hasła. Wpisz ${code} kod na stronie, aby móc zresetować hasło.`
             }
-            console.log(code)
-            if(req.body.code != null){
-                res.sendStatus(200)
-            }
-            console.log(req.body.code)
             if(response == null){
                 res.sendStatus(404)
                 return false
@@ -116,7 +110,6 @@ router.post('/forgotpassword', function(req, res){
             }
             transporter.sendMail(mailOptions, function(err, info){
                 if (err) throw err
-                console.log(info)
             })
         })
     })
@@ -125,34 +118,12 @@ router.post('/forgotpassword2', function(req, res){
     MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db){
         if (err) throw err
         let dbo = db.db('mydb')
-        dbo.collection('codes').findOne({'code': req.body.code}, function(err, response){
+        bcrypt.hash(req.body.forgotpassword, saltRounds, function(err, hash){
             if (err) throw err
-            if(response != null){
-                res.redirect('/public/forgotpassword/forgotpassword3.html')
-            }
-            if(response == null){
-                res.sendStatus(400)
-            }
-        })
-    })
-})
-router.post('/forgotpassword3', function(req, res){
-    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db){
-        if (err) throw err
-        let dbo = db.db('mydb')
-        var forgotemail = req.body.forgotemail
-        console.log(forgotemail)
-        var password = bcrypt.hash(req.body.newpassword, saltRounds)
-        dbo.collection('users').updateOne({'email': forgotemail}, {$set: {'password': password}}, function(err, response){
-            if (err) throw err
-            if(response != null){
-                console.log('Password Changed')
+            dbo.collection('users').updateOne({'code': code}, {$set: {'password': hash}}, function(err, response){
+                if (err) throw err
                 res.sendStatus(201)
-            }
-            if(response == null){
-                console.log('Error')
-                res.sendStatus(404)
-            }
+            })
         })
     })
 })
