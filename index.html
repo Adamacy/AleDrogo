@@ -1,12 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>AleDrogo</title>
-    </head>
-    <body>
-        
-    </body>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>AleDrogo</title>
+</head>
+<body>
+    <div id="blackout">
+
+    </div>
+    <header>
+        <div id="h-left-part">
+            <img src="img/AleDrogo_Logo.png" alt="AleDrogo" id="logo">
+        </div>
+        <div id="h-central-part">
+            <input type="text" id="search-input" placeholder="Wyszukaj coś!">
+        </div>
+        <div id="h-right-part">
+            <img src="img/shopping-bag.png" alt="" id="shopping-bag">
+            <img src="img/square.png" alt="" id="hamburger">
+        </div>
+    </header>
+</body>
+<script>
+    const searchInput = document.getElementById("search-input");
+    const blackout = document.getElementById("blackout");
+
+    searchInput.addEventListener("focusin", () => {
+        if(searchInput.value.length === 0){
+            searchInput.placeholder = "";
+        }
+
+        blackout.style.display = "block";
+    })
+
+    searchInput.addEventListener("focusout", () => {
+        if(searchInput.value.length === 0){
+            searchInput.placeholder = "Wyszukaj coś!";
+        }
+
+        blackout.style.display = "none";
+    })
+</script>
 </html>
