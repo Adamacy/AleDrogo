@@ -10,7 +10,7 @@ const user = require('./user.js')
 const creatingOffer = require('./creatingOffer')
 const renderingOffer = require('./renderingOffers.js')
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb+srv://Adamacy:NieInterere123@cluster0.x41no.mongodb.net/AleDrogo?retryWrites=true&w=majority"
+var url = "mongodb+srv://Adamacy:NoweHaslo123@cluster0.x41no.mongodb.net/AleDrogo?retryWrites=true&w=majority"
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

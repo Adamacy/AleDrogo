@@ -6,7 +6,7 @@ const formidable = require('formidable')
 const mongo = require('mongodb');
 const fs = require('fs');
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb+srv://Adamacy:NieInterere123@cluster0.x41no.mongodb.net/AleDrogo?retryWrites=true&w=majority"
+var url = "mongodb+srv://Adamacy:NoweHaslo123@cluster0.x41no.mongodb.net/AleDrogo?retryWrites=true&w=majority"
 
 router.get("/" , function(req, res){
     res.sendFile(path.join(__dirname
@@ -22,10 +22,19 @@ router.post('/offer', function(req, res){
             if (err) throw err
         })
     })
+    let offerData = {
+            'title': req.body.title,
+            'description': req.body.description,
+            'image': req.body.image,
+            'category': req.body.category,
+            'state': req.body.state,
+            'cost': req.body.cost
+        }
+        console.log(offerData)
     MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db){
         if (err) throw err
         let dbo = db.db('mydb')
-        dbo.collection('offers').insertOne({'title': req.body.title, 'description': req.body.description, 'image': req.body.image, 'category': req.body.category, 'state': req.body.state, 'cost': req.body.cost,}, function(err, response){
+        dbo.collection('offers').insertOne(offerData, function(err, response){
             if (err) throw err
             if (response != null){
                 res.sendStatus(200)

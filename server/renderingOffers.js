@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 const { ObjectId } = require('mongodb');
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb+srv://Adamacy:NieInterere123@cluster0.x41no.mongodb.net/AleDrogo?retryWrites=true&w=majority"
+var url = "mongodb+srv://Adamacy:NoweHaslo123@cluster0.x41no.mongodb.net/AleDrogo?retryWrites=true&w=majority"
 router.get("/" , function(req, res){
     res.sendFile(path.join(__dirname
         +'/index.html'));

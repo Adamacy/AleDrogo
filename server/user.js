@@ -9,8 +9,8 @@ const saltRounds = 10
 const nodemailer = require('nodemailer');
 var MongoClient = require('mongodb').MongoClient;
 var code = generateRandomString(6)
-var url = "mongodb+srv://Adamacy:NieInterere123@cluster0.x41no.mongodb.net/AleDrogo?retryWrites=true&w=majority"
-// mongodb+srv://Adamacy:NieInterere123@cluster0.x41no.mongodb.net/test
+var url = "mongodb+srv://Adamacy:NoweHaslo123@cluster0.x41no.mongodb.net/AleDrogo?retryWrites=true&w=majority"
+// mongodb+srv://Adamacy:NoweHaslo123@cluster0.x41no.mongodb.net/test
 var transporter = nodemailer.createTransport({
     'service': 'gmail',
     auth: {
