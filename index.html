@@ -1,46 +1,67 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
     <title>AleDrogo</title>
 </head>
+
 <body>
-    <div id="blackout">
+    <header>  
+        <img src=".\img\AleDrogo2.png" id="logo"/> 
+          <input type="search" placeholder="Wyszukaj..." id="searchBar">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Kategorie
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <p class="dropdown-item" href="#"><b>Kategorie</b></p>
+                <a class="dropdown-item" href="#">Sport i Turytstyka</a>
+                <a class="dropdown-item" href="#">Motoryzacja</a>
+                <a class="dropdown-item" href="#">Zdrowie</a>
+                <a class="dropdown-item" href="#">Dom i ogród</a>
+                <a class="dropdown-item" href="#">Dziecko</a>
+                <a class="dropdown-item" href="#">Elektronika</a>
+                <a class="dropdown-item" href="#">Rozrywka</a>
+                <a class="dropdown-item" href="#">Kolekcje i Sztuka</a>
+                <a class="dropdown-item" href="#">kultura i Rozrywka</a>
+                <a class="dropdown-item" href="#">Moda</a>
+                <a class="dropdown-item" href="#">Nieruchomości</a>
+                <a class="dropdown-item" href="#">Supermarket</a>
+                <a class="dropdown-item" href="#">Uroda</a>
+                <p class="dropdown-item" href="#"><b>Inne opcje</b></p>
+                <a class="dropdown-item" href="#">Cele Charytatywne</a>
+                <a class="dropdown-item" href="#"> Organizacje Charytatywne</a>
+                <a class="dropdown-item" href="#">Użytkownicy</a>
+                <a class="dropdown-item" href="#">Zakończone</a>
+            </div> 
+            </div>
+            <a href="https://allegro.pl"><svg width="45px" height="45px"viewBox="0 0 16 16" class="icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+            </svg></a>
+               
+            <a href="https://allegro.pl"><svg width="45px" height="45px" viewBox="0 0 16 16" class="icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2z"/>
+                <path fill-rule="evenodd" d="M8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+            </svg></a>
 
-    </div>
-    <header>
-        <div id="h-left-part">
-            <img src="img/AleDrogo_Logo.png" alt="AleDrogo" id="logo">
-        </div>
-        <div id="h-central-part">
-            <input type="text" id="search-input" placeholder="Wyszukaj coś!">
-        </div>
-        <div id="h-right-part">
-            <img src="img/shopping-bag.png" alt="" id="shopping-bag">
-            <img src="img/square.png" alt="" id="hamburger">
-        </div>
+            <svg width="45px" height="45px" viewBox="0 0 16 16" class="icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                </svg>
+                <svg width="45px" height="45px" viewBox="0 0 16 16" class="icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+                
     </header>
+         
+        
 </body>
-<script>
-    const searchInput = document.getElementById("search-input");
-    const blackout = document.getElementById("blackout");
-
-    searchInput.addEventListener("focusin", () => {
-        if(searchInput.value.length === 0){
-            searchInput.placeholder = "";
-        }
-
-        blackout.style.display = "block";
-    })
-
-    searchInput.addEventListener("focusout", () => {
-        if(searchInput.value.length === 0){
-            searchInput.placeholder = "Wyszukaj coś!";
-        }
-
-        blackout.style.display = "none";
-    })
-</script>
+    <script src="script.js"></script>
 </html>

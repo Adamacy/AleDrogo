@@ -1,75 +1,44 @@
-*{
-    margin: 0;
-}
-
-#blackout{
-    height: 100%;
-    width: 100%;
-    background-color: black;
-    position: absolute;
-    z-index: 1;
-    display: none;
-    opacity: 0.70;
-}
-
 header{
-    position: relative;
-    background-color: #a56546;
-    height: 170px;
+    background-color: lightgray ;
     width: 100%;
-    z-index: 2;
+    height: 125px;
 }
-
-#h-left-part{
-    width: 33%;
+header img{ 
+    width: 550px;    
     float: left;
+    margin-top:12px ;
 }
+body{
+    margin:0;
+}   
+#searchBar{
+    width: 30%;
+    height:4.3vh;
+    margin-top:38px;
+    margin-left: 100px ;
+    border:2.5px solid black ; 
+    border-radius: 5px;
+    font-size: x-large ;
+    float:left;
 
-#h-central-part{
-    width: 33%;
+}
+#searchBar:focus{
+    outline: none;
+}
+.dropdown{
+    width: 6%;
     float: left;
+    margin-top:39px;
+    margin-right:50px ;
 }
-
-#h-right-part{
-    width: 33%;
+.icon{
     float: left;
+    color:  black;
+    margin: 35px;
 }
-
-#logo{
-    height: 100px;
-    display: block;
-    padding: 35px 0 35px 106px;
-}
-
-#search-input{
-    height: 72px;
-    width: 881px;
-    margin: 53px 0 0 0;
-    color: black;
-    font-size: 51px;
-    padding-left: 15px;
-    border: none;
-}
-
-::placeholder{
-    opacity: 1;
-    color: black;
-}
-
-#shopping-bag{
-    width: 64px;
-    margin: 56px 0 0 336px;
-}
-
-#hamburger{
-    width: 64px;
-    margin: 56px 0 0 82px;
-}
-
-#shopping-bag:hover{
-    cursor: pointer;
-}
-
-#hamburger:hover{
-    cursor: pointer;
-}
+ 
+@media screen and (max-width: 992px) {
+    header {
+      background-color: red;
+    }
+  }
