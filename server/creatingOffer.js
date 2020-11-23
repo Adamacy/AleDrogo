@@ -17,7 +17,7 @@ router.post('/offer', function(req, res){
     form.parse(req, function(err, fields, files){
         if (err) throw err
         let oldpath = files.image.path;
-        let newpath = `C:/Users/ajaku/OneDrive/Dokumenty/AleDrogo/server/public/images/${files.image.name}`;
+        let newpath = `E:/Projekty/AleDrogo/server/public/images/${files.image.name}`;
         fs.rename(oldpath, newpath, function(err){
             if (err) throw err
         })
