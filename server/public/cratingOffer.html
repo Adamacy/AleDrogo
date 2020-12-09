@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <form method="POST" action="/offer">
+            <input type="text" name="title" placeholder="Podaj tytuł oferty"><br></br>
+            <input type="text" name="description" placeholder="Podaj opis"><br></br>
+            <input type="file" name="image"><br></br>
+            <select name="category"><br></br>
+                <option value="null">Kategoria</option>
+                <option value="Motoryzacja">Motoryzacja</option>
+                <option value="Elektronika">Elektronika</option>
+                <option value="Rozrywka">Rozrywka</option>
+                <option value="Zdrowie">Zdrowie</option>
+            </select><br></br>
+            <select name="type">
+                <option value="null">Stan</option>
+                <option value="Nowy">Nowy</option>
+                <option value="Używany">Używany</option>
+                <option value="Uszkodzony">Uszkodzony</option>
+            </select><br></br>
+            <input type="text" name="cost" placeholder="Podaj cenę"/><br></br>
+            <input type="submit" value="Prześlij"/>
+        </form>
+    </body>
+</html>
